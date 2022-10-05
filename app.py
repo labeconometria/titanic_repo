@@ -38,7 +38,7 @@ with col2:
 if st.button('Predecir'):
   
   pred = modelo.predict_proba(np.array([[clase, edad, hermanos_esposos, par_hijos, fare, sexo]]))
-  st.text(f'Habrías sobrevivido con una probabilidad de {round(pred, 3) * 100}%.')
+  st.text(f'Habrías sobrevivido con una probabilidad de {round(pred[0], 3) * 100}%.')
 else:
   st.text('Seleccione entre las opciones y oprima Predecir')
 
