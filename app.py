@@ -13,8 +13,13 @@ st.title('¿Habrías sobrevivido al Titanic?')
 
 st.header('Exploración inicial')
 
-st.dataframe(data.describe())
+
+st.subheader('Los primeros datos')
 st.dataframe(data.head())
+
+st.subheader('Un descriptivo')
+st.dataframe(data.describe())
+
 
 st.header('Visualización')
        
