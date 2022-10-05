@@ -13,8 +13,24 @@ st.title('¿Habrías sobrevivido al Titanic?')
 
 st.header('Exploración inicial')
 
-st.header('Visualización')
+st.text(data.info()
 
+st.header('Visualización')
+       
+fig, ax = plt.subplots(1, 4, sharey=True, figsize=(16, 4))
+ax[0].set_ylabel('%')
+
+for idx, col in enumerate(['pclass','sibsp','parch','sex_male']):
+  titanic[col].value_counts(normalize=True).plot(kind='bar', ax=ax[idx], title=col)  
+st.pyplot(fig)
+
+fig, ax = plt.subplots(1, 4, sharey=True, figsize=(16, 4))
+
+for idx, col in enumerate(['pclass','sibsp','parch','sex_male']):
+  pd.crosstab(titanic[col], titanic['survived']).plot(kind='bar', ax=ax[idx], title=col) 
+        
+st.pyplot(fig)
+        
 st.header('Verifica si habrías sobrevivido')
 
 col1, col2 = st.columns(2)
@@ -31,9 +47,9 @@ with col1:
 
 with col2:
   st.header('Boleto')
-  edad = st.slider('Edad', 0, 99)
   clase = st.selectbox('Clase', (1, 2, 3))
-  fare = st.slider('Disposición a pagar por el boleto', 0, 1000)
+  edad = st.slider('Edad', 0, 99)
+  fare = st.slider('Disposición a pagar por el boleto', 0, 500)
  
 if st.button('Predecir'):
   
