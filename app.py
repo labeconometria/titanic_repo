@@ -21,13 +21,13 @@ fig, ax = plt.subplots(1, 4, sharey=True, figsize=(16, 4))
 ax[0].set_ylabel('%')
 
 for idx, col in enumerate(['pclass','sibsp','parch','sex_male']):
-  titanic[col].value_counts(normalize=True).plot(kind='bar', ax=ax[idx], title=col)  
+  data[col].value_counts(normalize=True).plot(kind='bar', ax=ax[idx], title=col)  
 st.pyplot(fig)
 
 fig, ax = plt.subplots(1, 4, sharey=True, figsize=(16, 4))
 
 for idx, col in enumerate(['pclass','sibsp','parch','sex_male']):
-  pd.crosstab(titanic[col], titanic['survived']).plot(kind='bar', ax=ax[idx], title=col) 
+  pd.crosstab(data[col], data['survived']).plot(kind='bar', ax=ax[idx], title=col) 
         
 st.pyplot(fig)
         
