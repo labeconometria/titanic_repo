@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
 
-data = pd.read_csv('clean_data.csv')
+data = pd.read_csv('clean_titanic.csv')
 modelo = pickle.load(open('modelo.pickle', 'rb'))
 
 st.title('¿Habrías sobrevivido al Titanic?')
